@@ -1,0 +1,69 @@
+<!--
+	<div class="control-group">
+		<label for="search" style="float:left;">Search</label>
+		<span class="add-on" style="float:right;width:200px !important">
+			<span class="icon-search"></span>	
+			<input type="text" id="search" ng-model="content" placeholder="请输入相关搜索内容">
+		</span>
+	</div>
+	<div class="control-group">
+		<label for="sort" style="float:left;">Sort by</label>
+		<span class="add-on">
+			<span class="icon-leaf"></span>
+			<select ng-model="order">
+				<option value="name">Alphabetical</option>
+				<option value="age">Newest</option>
+			</select>
+		</span>
+	</div>
+	
+	<br/><br/>
+	<table class="table">
+		<tr>
+			<th>书籍编号</th>
+			<th>书籍名称</th>
+			<th>书籍作者</th>
+			<th>书籍描述</th>
+			<th>用户操作</th>
+		</tr>
+		<tr ng-repeat="book in books | filter:content | orderBy:order">
+			<th>{{book.id}}</th>
+			<th>{{book.name}}</th>
+			<th>{{book.author}}</th>
+			<th>{{book.des}}</th>
+			<th><a href="#/detail/{{book.id}}">查看</a></th>
+		</tr>
+	</table>
+-->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<div class="alert alert-success" style="width:700px;align:center;">
+		<div class="control-group" style="float:left;margin-top:10px;">
+			<label for="search" style="float:left;" class="col-lg-2 col-md-2 col-sm-2">Search</label>
+			<span class="add-on" class="col-lg-4 col-md-4 col-sm-4" style="">
+				<span class="icon-search"></span>	
+				<input type="text" id="search" autoFocus ng-model="content" placeholder="请输入相关搜索内容">
+			</span>
+		</div>
+		<div class="control-group" style="margin-left:10px;margin-top:10px;float:left;">
+			<label for="sort" style="float:left;" class="col-lg-2 col-md-2 col-sm-2">Sort by</label>
+			<span class="add-on" class="col-lg-4 col-md-4 col-sm-4">
+				<span class="icon-leaf"></span>
+				<select ng-model="order" data-placeholder="选择排序方式" tabindex="-1">
+					<option value="sender">Alphabetical</option>
+					<option value="date">Newest</option>
+				</select>
+			</span>
+		</div>
+		<table class="table" style="width:600px;text-align:center;align:center;height:auto;">
+			<tr>
+				<td><strong>Sender</strong></td>
+				<td><strong>Subject</strong></td>
+				<td><strong>Date</strong></td>
+			</tr>
+			<tr ng-repeat='message in messages | filter:content | orderBy:order'>
+				<td>{{message.sender}}</td>
+				<td><a href="#/view/{{message.id}}">{{message.subject}}</a></td>
+				<td>{{message.date}}</td>
+			</tr>
+		</table>
+	<div>
